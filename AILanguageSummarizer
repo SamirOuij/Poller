@@ -1,0 +1,45 @@
+from firebase_admin import credentials, firestore
+import firebase_admin 
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+# Setup Firebase Admin SDK
+cred = credentials.Certificate('C:\\Users\\samir\\Downloads\\polar-82756-firebase-adminsdk-to3li-1b9e353e96.json')
+firebase_admin.initialize_app(cred)
+
+# Reference to Firestore
+db = firestore.client()
+
+# Set up the T5 model and tokenizer
+model = GPT2LMHeadModel.from_pretrained("gpt2-large")
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2-large")
+
+def generate_title(input_text):
+    prompt = "Generate a catchy title for a social media website from the following prompts. You will be given either the actual title from a US bill, or the actual title and summary from a US bill. The goal is to have a title like (To provide for a limitation on availability of funds for Independent Agencies, National Archives and Records Administration, Office of Inspector General for fiscal year 2024.) Into (budget constraints for National Archives and more!) outputs should be kept to 5 or fewer words. Here are the prompts:  "
+    input_ids = tokenizer.encode(prompt + input_text, return_tensors="pt")
+    
+    # Remove truncation=True from this line
+    outputs = model.generate(input_ids)
+    
+    catchy_title = tokenizer.decode(outputs[0][len(input_ids[0]):], skip_special_tokens=True)
+    return catchy_title
+
+
+# Fetch bills from the 'BillsComingSoon' collection and generate titles
+bills_soon_ref = db.collection('BillsComingSoon').stream()
+for bill in bills_soon_ref:
+    original_title = bill.to_dict().get('title')
+    if original_title:
+        catchy_title = generate_title(original_title)
+        bill.reference.update({"clickable_title": catchy_title})
+
+# Fetch bills from the 'bills' collection and generate titles
+bills_ref = db.collection('bills').stream()
+for bill in bills_ref:
+    title = bill.to_dict().get('title')
+    summary = bill.to_dict().get('summary')
+    if title and summary:
+        input_text = f"Title: {title}. Summary: {summary}."
+        catchy_title = generate_title(input_text)
+        bill.reference.update({"clickable_title": catchy_title})
+
+print("Process completed!")
