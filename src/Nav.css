@@ -1,0 +1,79 @@
+nav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: auto;
+    justify-content: space-between;
+    background: linear-gradient(90deg, rgba(237, 12, 52, 0.72) 29.66%, rgba(56, 0, 198, 0.6) 70.77%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  /* Added a shadow for a slight lift effect */
+    transition: all 0.3s ease;  /* For smooth transitions */
+  }
+  
+  .profile-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Spacing between profile elements */
+  }
+  
+  .profile-photo-small {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;  /* Border added to accentuate the profile photo */
+  }
+  
+  .nav-ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;  /* Added gap for better spacing between items */
+    padding: 0;
+  }
+  
+  .nav-ul li {
+    text-align: center;
+    color: white;
+    padding: 5px 15px;
+    list-style: none;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;  /* For hover effect */
+  }
+  
+  .nav-ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);  /* Hover effect for nav items */
+  }
+  
+  .hamburger {
+    background-color: transparent;
+    border: 0;
+    color: white;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;  /* For hover effect */
+  }
+  
+  .hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);  /* Hover effect for hamburger */
+  }
+  
+  .hamburger:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(56, 0, 198, 0.3);  /* A focus ring for accessibility */
+  }
+  
+  .nav-ul.show {
+    display: flex;
+  }
+  
+  .nav-ul li a {
+    text-decoration: none; /* To remove the underline */
+    color: white; /* Making the color white as your background is dark */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  }
+  
+  .nav-ul li a:hover {
+    color: #ddd; /* Slightly lighter color on hover */
+  }
