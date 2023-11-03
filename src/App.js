@@ -22,6 +22,7 @@ function App() {
       setUserData({ name: displayName, email, photoURL });
     }
   }, [user]);
+  console.log("App component is being rendered");
 
   return (
     <Router>
