@@ -1,0 +1,99 @@
+.profile-container {
+    font-family: Geneva, Verdana, sans-serif;
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    color: #555;
+}
+
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.profile-picture {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 10%;
+    object-fit: cover;
+    padding: 2rem;
+}
+
+profile-description
+.profile-name {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.profile-party {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.image-source {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.bills-heading {
+    margin-top: 30px;
+    font-size: 22px;
+    color: #333;
+    padding-left: 20px;
+}
+
+.bills-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bill-item {
+    background-color: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    margin-top: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.bill-item:hover {
+    transform: translateY(-4px);
+}
+
+.bill-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.bill-detail {
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.bill-link {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.bill-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
