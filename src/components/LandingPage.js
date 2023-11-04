@@ -10,6 +10,10 @@ const LandingPage = () => {
     // Redirect to the homepage with filtered data for the selected state
     history.push(`/homepage?level=state&state=${stateName}`);
   };
+  
+    const navigateToHome = (level) => {
+        history.push(`/home/${level}`);
+    };
 
   // Handler for selecting federal level
   const handleFederalClick = () => {

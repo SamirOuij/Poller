@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Card from './Cards';
 import CreatePollForm from './CP_Form';
 import firebase from '../index';
+import { useParams } from 'react-router-dom';
 
 function HomeScreen(props) {
   const { handleCardClick } = props;
+  const { level } = useParams();
 
   const [data, setData] = useState([]);
 
@@ -17,6 +19,7 @@ function HomeScreen(props) {
     setActiveTab(tabId === 'billsTab' ? 'bills' : 'polls');
   };
 
+  
   const ref = firebase.firestore().collection("bills");
 
   function getData() {
@@ -33,6 +36,8 @@ function HomeScreen(props) {
   useEffect(() => {
     getData();
   }, []);
+
+  const filteredData = data.filter(bill => bill.level === level);
 
   return (
     <div>
