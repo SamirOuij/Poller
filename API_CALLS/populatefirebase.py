@@ -38,7 +38,8 @@ for summary in summaries:
         "action_desc": summary.get('actionDesc', 'N/A'),
         "congress": summary['bill']['congress'],
         "chamber": summary['bill']['originChamber'],
-        "url": summary['bill']['url']
+        "url": summary['bill']['url'],
+        "level":"federal"
     }
 
     try:
