@@ -19,10 +19,24 @@ const MapChart = ({
   const [center, setCenter] = useState([0, 0]);
 
   useEffect(() => {
-    // ... existing useEffect logic
-  }, [selectedLevel, selectedState]);
-
-  // Function to determine if a geography is selected
+    if (selectedLevel === 'state' && selectedState) {
+      const stateGeographies = feature(usAtlasStates, usAtlasStates.objects.states).features;
+      const selectedGeo = stateGeographies.find(geo => geo.id === selectedState);
+      if (selectedGeo) {
+        const centroid = geoCentroid(selectedGeo);
+        setCenter(centroid);
+        setZoom(4); // Adjust zoom level as needed
+        setGeographies(feature(usAtlasCounties, usAtlasCounties.objects.counties).features.filter(geo => geo.id.startsWith(selectedState)));
+      } else {
+        console.error('Selected state geo data is not valid:', selectedGeo);
+      }
+    } else {
+      setCenter([0, 0]);
+      setZoom(1);
+      setGeographies(feature(usAtlasStates, usAtlasStates.objects.states).features);
+    }
+  }, [selectedLevel, selectedState, usAtlasStates, usAtlasCounties]);
+  
   const isGeographySelected = (geo) => {
     if (selectedLevel === 'federal') {
       return allStatesSelected || selectedCounties.includes(geo.id);
@@ -31,6 +45,7 @@ const MapChart = ({
     }
     return false;
   };
+  
 
   return (
     <ComposableMap projection="geoAlbersUsa">
