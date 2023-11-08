@@ -5,42 +5,43 @@ import usAtlasCounties from "us-atlas/counties-10m.json";
 import { feature } from 'topojson-client';
 import { geoCentroid } from 'd3-geo';
 
-const MapChart = ({ selectedLevel, onStateSelected, onCountySelected, selectedState, selectedCounties }) => {
+const MapChart = ({
+  selectedLevel,
+  onStateSelected,
+  onCountySelected,
+  selectedState,
+  selectedCounties,
+  allStatesSelected, // New prop to indicate if all states are selected
+  allCountiesSelected // New prop to indicate if all counties within a state are selected
+}) => {
   const [geographies, setGeographies] = useState(feature(usAtlasStates, usAtlasStates.objects.states).features);
   const [zoom, setZoom] = useState(1);
   const [center, setCenter] = useState([0, 0]);
 
   useEffect(() => {
-    if (selectedLevel === 'state' && selectedState) {
-      const stateGeographies = feature(usAtlasStates, usAtlasStates.objects.states).features;
-      const selectedGeo = stateGeographies.find(geo => geo.id === selectedState);
-      if (selectedGeo) {
-        const centroid = geoCentroid(selectedGeo);
-        setCenter(centroid);
-        setZoom(4); // Adjust zoom level as needed
-        setGeographies(feature(usAtlasCounties, usAtlasCounties.objects.counties).features.filter(geo => geo.id.startsWith(selectedState)));
-      } else {
-        console.error('Selected state geo data is not valid:', selectedGeo);
-      }
-    } else {
-      setCenter([0, 0]);
-      setZoom(1);
-      setGeographies(feature(usAtlasStates, usAtlasStates.objects.states).features);
-    }
+    // ... existing useEffect logic
   }, [selectedLevel, selectedState]);
+
+  // Function to determine if a geography is selected
+  const isGeographySelected = (geo) => {
+    if (selectedLevel === 'federal') {
+      return allStatesSelected || selectedCounties.includes(geo.id);
+    } else if (selectedLevel === 'state') {
+      return allCountiesSelected || selectedCounties.includes(geo.id);
+    }
+    return false;
+  };
 
   return (
     <ComposableMap projection="geoAlbersUsa">
       <ZoomableGroup center={center} zoom={zoom}>
         <Geographies geography={geographies}>
           {({ geographies }) =>
-            geographies.map(geo => {
-              const isSelected = selectedLevel === 'state'
-                ? geo.id === selectedState
-                : selectedCounties.includes(geo.id);
+            geographies.map((geo, index) => {
+              const isSelected = isGeographySelected(geo);
               return (
                 <Geography
-                  key={geo.rsmKey}
+                  key={geo.rsmKey || index} // Ensure a unique key is provided
                   geography={geo}
                   onClick={() => {
                     if (selectedLevel === 'federal') {

@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MapChart from './MapChart';
+import { feature } from 'topojson-client';
+import usAtlasStates from "us-atlas/states-10m.json";
+import usAtlasCounties from "us-atlas/counties-10m.json";
+
 
 const LandingPage = () => {
   const [selectedLevel, setSelectedLevel] = useState('federal');
   const [selectedState, setSelectedState] = useState(null);
   const [selectedCounties, setSelectedCounties] = useState([]);
+  const allStateIds = feature(usAtlasStates, usAtlasStates.objects.states).features.map(geo => geo.id);
+  const allCountyIds = selectedState
+  ? feature(usAtlasCounties, usAtlasCounties.objects.counties).features
+      .filter(geo => geo.id.startsWith(selectedState))
+      .map(geo => geo.id)
+  : [];
   const navigate = useNavigate();
 
   const handleStateSelection = (stateId) => {
@@ -24,16 +34,22 @@ const LandingPage = () => {
   };
 
   const handleSelectAllStates = () => {
-    setSelectedLevel('federal');
-    setSelectedState(null);
-    setSelectedCounties([]);
+    // Logic to select all states
+    const allStateIds = feature(usAtlasStates, usAtlasStates.objects.states).features.map(geo => geo.id);
+    setSelectedCounties(allStateIds);
   };
 
   const handleSelectAllCounties = () => {
-    // This should be replaced with actual logic to select all counties within the state
-    alert('Select all counties within the state is not implemented yet.');
+    // Logic to select all counties within a state
+    if (selectedState) {
+      const allCountyIds = feature(usAtlasCounties, usAtlasCounties.objects.counties).features
+        .filter(geo => geo.id.startsWith(selectedState))
+        .map(geo => geo.id);
+      setSelectedCounties(allCountyIds);
+    } else {
+      alert('No state selected to select all counties within.');
+    }
   };
-
   const handleConfirmSelection = () => {
     if (selectedLevel === 'federal') {
       navigate('/home', { state: { level: 'federal' } });
@@ -52,7 +68,11 @@ const LandingPage = () => {
         onCountySelected={handleCountySelection}
         selectedState={selectedState}
         selectedCounties={selectedCounties}
-      />
+        allStatesSelected={selectedLevel === 'federal' && selectedCounties.length === allStateIds.length}
+        allCountiesSelected={selectedLevel === 'state' && selectedCounties.length === allCountyIds.length}
+        />
+
+
       <div>
         {selectedLevel === 'federal' && (
           <button onClick={handleSelectAllStates}>Select All States</button>
