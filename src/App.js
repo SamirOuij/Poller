@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Bills from './components/Bills';
 import About from './components/About';
 import Profile from './components/Profile';
 import LegislatorProfile from './components/LegislatorProfile';

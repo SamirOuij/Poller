@@ -11,12 +11,12 @@ const MapChart = ({
   onCountySelected,
   selectedState,
   selectedCounties,
-  allStatesSelected, // New prop to indicate if all states are selected
-  allCountiesSelected // New prop to indicate if all counties within a state are selected
+  setZoom, // Added these props for controlling zoom
+  setCenter, // Added these props for controlling center
+  zoom,
+  center
 }) => {
   const [geographies, setGeographies] = useState(feature(usAtlasStates, usAtlasStates.objects.states).features);
-  const [zoom, setZoom] = useState(1);
-  const [center, setCenter] = useState([0, 0]);
 
   useEffect(() => {
     if (selectedLevel === 'state' && selectedState) {
@@ -24,39 +24,35 @@ const MapChart = ({
       const selectedGeo = stateGeographies.find(geo => geo.id === selectedState);
       if (selectedGeo) {
         const centroid = geoCentroid(selectedGeo);
+        console.log("Centroid:", centroid); // Debug log
+        if (!centroid.every(Number.isFinite)) {
+          console.error("Invalid centroid:", centroid);
+          return; // Early return to avoid setting invalid state
+        }
         setCenter(centroid);
-        setZoom(4); // Adjust zoom level as needed
+        setZoom(4);
         setGeographies(feature(usAtlasCounties, usAtlasCounties.objects.counties).features.filter(geo => geo.id.startsWith(selectedState)));
       } else {
-        console.error('Selected state geo data is not valid:', selectedGeo);
+        console.error('Selected state geo data is not valid:', selectedState);
       }
-    } else {
-      setCenter([0, 0]);
-      setZoom(1);
-      setGeographies(feature(usAtlasStates, usAtlasStates.objects.states).features);
-    }
-  }, [selectedLevel, selectedState, usAtlasStates, usAtlasCounties]);
-  
-  const isGeographySelected = (geo) => {
-    if (selectedLevel === 'federal') {
-      return allStatesSelected || selectedCounties.includes(geo.id);
-    } else if (selectedLevel === 'state') {
-      return allCountiesSelected || selectedCounties.includes(geo.id);
-    }
-    return false;
-  };
-  
+    } if (selectedLevel === 'federal') {
+        console.log("Resetting to default zoom and center");
+        setCenter([-96.37872873001915, 38.49365521741807]);
+        setZoom(1);
+        setGeographies(feature(usAtlasStates, usAtlasStates.objects.states).features);
+      }
+  }, [selectedLevel, selectedState]);
 
   return (
     <ComposableMap projection="geoAlbersUsa">
       <ZoomableGroup center={center} zoom={zoom}>
         <Geographies geography={geographies}>
           {({ geographies }) =>
-            geographies.map((geo, index) => {
-              const isSelected = isGeographySelected(geo);
+            geographies.map((geo) => {
+              const isSelected = selectedCounties.includes(geo.id);
               return (
                 <Geography
-                  key={geo.rsmKey || index} // Ensure a unique key is provided
+                  key={geo.rsmKey}
                   geography={geo}
                   onClick={() => {
                     if (selectedLevel === 'federal') {
