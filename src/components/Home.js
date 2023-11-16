@@ -1,48 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from './Cards';
 import CreatePollForm from './CP_Form';
-import firebase from '../index';
-import { useParams } from 'react-router-dom';
 
-function HomeScreen(props) {
-  const { handleCardClick } = props;
-  const { level } = useParams();
+function HomeScreen({ data, handleCardClick, loader }) {
+  const [activeTab, setActiveTab] = React.useState('bills');
+  const [showPollForm, setShowPollForm] = React.useState(false);
 
-  const [data, setData] = useState([]);
-
-  const [loader, setLoader] = useState(true);
-  const [activeTab, setActiveTab] = useState('bills');
-  const [showPollForm, setShowPollForm] = useState(false);
-  
   const handleTabClick = (event) => {
     const tabId = event.target.id;
     setActiveTab(tabId === 'billsTab' ? 'bills' : 'polls');
   };
 
-  
-  const ref = firebase.firestore().collection("bills");
-
-  function getData() {
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
-      });
-      setData(items);
-      setLoader(false);
-    });
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const filteredData = data.filter(bill => bill.level === level);
-
   return (
     <div>
       <div className="tabs">
-        {/* Remove the login button */}
         <button 
           className={`tab-button ${activeTab === 'bills' ? 'active' : ''}`} 
           id="billsTab" 
@@ -61,17 +32,15 @@ function HomeScreen(props) {
 
       {activeTab === 'bills' && (
         <div className="cardContainer">
-          {loader === false && data.filter(bill => bill.type).map((bill) => 
-             (
-              <Card
-                key={bill.bill_id}
-                title={bill.clickable_title}
-                onClick={() => handleCardClick(bill.bill_id)}
-                >
-                <div className="graph"></div>
-              </Card>
-            )
-          )}
+          {!loader && data.map((bill) => (
+            <Card
+              key={bill.bill_id}
+              title={bill.clickable_title}
+              onClick={() => handleCardClick(bill.bill_id)}
+            >
+              <div className="graph"></div>
+            </Card>
+          ))}
         </div>
       )}
 
@@ -80,12 +49,12 @@ function HomeScreen(props) {
           <button onClick={() => setShowPollForm(!showPollForm)}>Create New Poll</button>
           
           {showPollForm && <CreatePollForm />}
-          {data.filter(poll => !poll.type).map((poll) => (
+          {data.map((poll) => (
             <Card
               key={poll.bill_id}
               title={poll.clickable_title}
               onClick={() => handleCardClick(poll.bill_id)}
-              >
+            >
               {poll.summary} 
             </Card>
           ))}

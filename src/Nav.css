@@ -4,8 +4,7 @@ nav {
     align-items: center;
     margin-bottom: auto;
     justify-content: space-between;
-    background: linear-gradient(90deg, rgba(237, 12, 52, 0.72) 29.66%, rgba(56, 0, 198, 0.6) 70.77%);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);  /* Added a shadow for a slight lift effect */
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.72) 29.66%, rgba(7, 90, 255, 0.963) 70.77%);
     transition: all 0.3s ease;  /* For smooth transitions */
   }
   
@@ -77,3 +76,67 @@ nav {
   .nav-ul li a:hover {
     color: #ddd; /* Slightly lighter color on hover */
   }
+
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.72) 29.66%, rgba(7, 90, 255, 0.963) 70.77%);
+    padding-top: 0.5rem;
+  }
+  
+  .footer-icon {
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+  }
+  
+  .left-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+  }
+  
+  .logo {
+    display: flex;
+    width: 193px;
+    height: 66px;
+    left: 41px;
+    top: 33px;
+  
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 16px;
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .slogan {
+    display: flex;
+    width: 229px;
+    height: 37px;
+    left: 41px;
+    top: 99px;
+  
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 16px;
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: white;
+  }
+  
