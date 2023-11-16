@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 import usAtlasStates from "us-atlas/states-10m.json";
 import usAtlasCounties from "us-atlas/counties-10m.json";

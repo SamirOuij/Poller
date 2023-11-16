@@ -15,6 +15,14 @@ const LandingPage = () => {
     return state ? state.properties.name : null;
   };
 
+  
+  const resetZoom = () => {
+    setZoom(1);
+    setCenter([-96.37872873001915, 38.49365521741807]);
+    setSelectedState(null)
+    setSelectedLevel('federal')
+  };
+
   const handleStateSelection = (stateId) => {
     console.log("State selected:", stateId);
     setSelectedLevel('state');
@@ -48,6 +56,9 @@ const LandingPage = () => {
         <button onClick={navigateToBills}>
           {selectedLevel === 'federal' ? 'View Federal Legislation' : `View ${getStateNameById(selectedState)} Legislation`}
         </button>
+        {zoom > 1 && (
+        <button onClick={resetZoom}>Zoom Out</button>
+      )}
       </div>
     </div>
   );

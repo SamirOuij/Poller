@@ -29,6 +29,7 @@ function App() {
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/home/federal' element={<Bills userData={userData} />} />
         <Route path='/home/state/:stateName' element={<Bills userData={userData} />} />
+        <Route path="/legislator/:bioguideID" element={<LegislatorProfile/>} />
         <Route path='/Profile' element={<Profile userData={userData} />} />
       </Routes>
       <Footer />
