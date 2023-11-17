@@ -10,6 +10,7 @@ import './index.css';
 import './LegislatorProfile.css';
 import './LoginPopup.css';
 import './Nav.css';
+import './MapChart.css'
 
 function App() {
   const [user, setUser] = useState(null);

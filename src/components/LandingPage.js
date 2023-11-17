@@ -41,24 +41,28 @@ const LandingPage = () => {
   
 
   return (
-    <div>
-      <MapChart
-        selectedLevel={selectedLevel}
-        onStateSelected={handleStateSelection}
-        selectedState={selectedState}
-        setZoom={setZoom}
-        setCenter={setCenter}
-        zoom={zoom}
-        center={center}
-      />
+    <div className="landing">
+      <a className="logo">POLAR</a>
+        <a className="slogan">Bills made easy</a>
+      <div className="map-section">
+        <MapChart
+          selectedLevel={selectedLevel}
+          onStateSelected={handleStateSelection}
+          selectedState={selectedState}
+          setZoom={setZoom}
+          setCenter={setCenter}
+          zoom={zoom}
+          center={center}
+        />
+      </div>
 
-      <div>
-        <button onClick={navigateToBills}>
+      <div className="controls-section">
+        <button className="controls-button view-legislation" onClick={navigateToBills}>
           {selectedLevel === 'federal' ? 'View Federal Legislation' : `View ${getStateNameById(selectedState)} Legislation`}
         </button>
         {zoom > 1 && (
-        <button onClick={resetZoom}>Zoom Out</button>
-      )}
+          <button className="controls-button zoom-out" onClick={resetZoom}>Zoom Out</button>
+        )}
       </div>
     </div>
   );

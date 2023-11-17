@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginPopup from './LoginPopup';
+import logo from "../img/Polar_No_Background.png"
 
 function hamClick() {
   const navUL = document.getElementById("nav-ul");
@@ -33,39 +34,45 @@ export function NavBar({ userData, setUserData }) {
   return (
     <header>
       <nav>
-        {userData ? (
-          <div className="profile-wrapper">
-            <img
-              className="profile-photo-small"
-              src={userData.photoURL}
-              alt="user profile"
-            />
-            <button className="sign-in" onClick={handleSignOut}>
-              Sign Out
+        <div className="left-section">
+          {userData ? (
+            <div className="profile-wrapper">
+              <img
+                className="profile-photo-small"
+                src={userData.photoURL}
+                alt="user profile"
+              />
+              <button className="sign-in" onClick={handleSignOut}>
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <button className="sign-in" onClick={openLoginPopup}>
+              Sign In
             </button>
-          </div>
-        ) : (
-          <button className="sign-in" onClick={openLoginPopup}>
-            Sign In
-          </button>
-        )}
-        <div className="left-head">
-          <a className="logo">POLAR</a>
-          <a className="slogan">Bills made easy</a>
+          )}
         </div>
-        <button className="hamburger" id="hamburger" onClick={hamClick}>
-          <i className="fas fa-bars"></i>
-        </button>
+
+        <div className="center-section">
+          <img src={logo} alt="Polar Logo" className="logo" />
+        </div>
+
+        <div className="right-section">
+          <button className="hamburger" id="hamburger" onClick={hamClick}>
+            <i className="fas fa-bars"></i>
+          </button>
+        </div>
+
         <ul className="nav-ul" id="nav-ul">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="nav-link">Home</Link>
           </li>
           <li>
-            <Link to="/About">About</Link>
+            <Link to="/About" className="nav-link">About</Link>
           </li>
           {userData && (
             <li>
-              <Link to="/Profile">Profile</Link>
+              <Link to="/Profile" className="nav-link">Profile</Link>
             </li>
           )}
         </ul>
@@ -81,16 +88,8 @@ export function Footer() {
   return (
     <footer>
       <div>
-        <img
-          className="footer-icon"
-          src="./img/polar.png"
-          alt="polar bear icon."
-        />
-        <img
-          className="footer-icon"
-          src="./img/king.png"
-          alt="king county logo."
-        />
+        
+        
       </div>
     </footer>
   );

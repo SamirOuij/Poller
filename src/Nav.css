@@ -1,142 +1,105 @@
+/* Adjusted navbar styles for better visibility and design */
 nav {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin-bottom: auto;
-    justify-content: space-between;
-    background: linear-gradient(90deg, rgba(255, 0, 0, 0.72) 29.66%, rgba(7, 90, 255, 0.963) 70.77%);
-    transition: all 0.3s ease;  /* For smooth transitions */
-  }
-  
-  .profile-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;  /* Spacing between profile elements */
-  }
-  
-  .profile-photo-small {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid white;  /* Border added to accentuate the profile photo */
-  }
-  
-  .nav-ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;  /* Added gap for better spacing between items */
-    padding: 0;
-  }
-  
-  .nav-ul li {
-    text-align: center;
-    color: white;
-    padding: 5px 15px;
-    list-style: none;
-    border-radius: 15px;
-    transition: background-color 0.3s ease;  /* For hover effect */
-  }
-  
-  .nav-ul li:hover {
-    background-color: rgba(255, 255, 255, 0.1);  /* Hover effect for nav items */
-  }
-  
-  .hamburger {
-    background-color: transparent;
-    border: 0;
-    color: white;
-    font-size: 20px;
-    display: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;  /* For hover effect */
-  }
-  
-  .hamburger:hover {
-    background-color: rgba(255, 255, 255, 0.1);  /* Hover effect for hamburger */
-  }
-  
-  .hamburger:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(56, 0, 198, 0.3);  /* A focus ring for accessibility */
-  }
-  
-  .nav-ul.show {
-    display: flex;
-  }
-  
-  .nav-ul li a {
-    text-decoration: none; /* To remove the underline */
-    color: white; /* Making the color white as your background is dark */
-    transition: color 0.3s ease; /* Smooth color transition on hover */
-  }
-  
-  .nav-ul li a:hover {
-    color: #ddd; /* Slightly lighter color on hover */
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8em 1.5em; /* Adjust padding for better spacing */
+  background: linear-gradient(90deg, rgba(95, 0, 179, 0.72) 29.66%, rgba(95, 0, 179, 0.99) 70.77%);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
 
-  footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, rgba(255, 0, 0, 0.72) 29.66%, rgba(7, 90, 255, 0.963) 70.77%);
-    padding-top: 0.5rem;
-  }
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Adjust the gap for better spacing */
+}
+
+.profile-photo-small {
+  width: 40px; /* Slightly larger for visibility */
+  height: 40px; /* Slightly larger for visibility */
+  border-radius: 50%;
+  border: 2px solid #fff; /* White border to stand out against purple */
+}
+
+.sign-in {
+  background-color: #fff; /* Contrast against the purple */
+  color: #5f00b3; /* Purple text to match the background */
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.left-section, .right-section {
+  flex: 1;
+}
+
+img{
+  max-width: 15%;
+
+}
+
+.center-section {
+  display: flex;
+  justify-content: center;
+  flex: 2;
   
-  .footer-icon {
-    height: 100px;
-    width: 100px;
-    margin-right: 10px;
-  }
-  
-  .left-head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 20px;
-  }
-  
-  .logo {
-    display: flex;
-    width: 193px;
-    height: 66px;
-    left: 41px;
-    top: 33px;
-  
-    font-family: 'Fraunces';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 16px;
-  
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-  }
-  
-  .slogan {
-    display: flex;
-    width: 229px;
-    height: 37px;
-    left: 41px;
-    top: 99px;
-  
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 16px;
-  
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: white;
-  }
-  
+}
+
+.sign-in:hover {
+  background-color: #eee; /* Lighter on hover */
+  color: #5f00b3;
+}
+
+.left-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align to the start for better structure */
+}
+
+.logo {
+  font-family: 'Fraunces', sans-serif;
+  font-size: 5.5em; /* Adjusted for better visibility */
+  color: #fff; /* White color for contrast */
+  margin-bottom: 0.2em; /* Space between logo and slogan */
+}
+
+.slogan {
+  font-family: 'Fraunces', sans-serif;
+  font-size: 1em; /* Scaled down to not overpower the logo */
+  color: #fff; /* White color for contrast */
+}
+
+.hamburger {
+  display: none; /* Assuming you will show this in mobile view */
+  /* Styles for mobile view can be added within a media query */
+}
+
+.nav-ul {
+  list-style-type: none; /* Remove default list styling */
+  display: flex;
+  gap: 1em; /* Adjust gap for spacing between nav items */
+}
+
+
+.nav-ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+}
+.nav-link {
+  font-family: 'Fraunces', sans-serif;
+  font-weight: bold;
+  background-color: #fff; /* White background to match the sign-in button */
+  color: #5f00b3; /* Purple text to match the navbar background */
+  text-decoration: none; /* Remove the underline */
+  padding: 0.5em 1em; /* Padding to increase the clickable area */
+  border-radius: 4px; /* Rounded corners for the button-like appearance */
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+  display: inline-block; /* Needed to apply padding and margins correctly */
+}
+
+.nav-link:hover, .nav-link:focus {
+  background-color: #eee; /* Lighter background on hover for feedback */
+  color: #5f00b3; /* Keep the purple text */
+  outline: none; /* Remove the outline on focus for a clean look */
+}

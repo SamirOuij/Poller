@@ -46,29 +46,16 @@ const MapChart = ({
   };
 
   return (
-    <ComposableMap projection="geoAlbersUsa">
+    <ComposableMap projection="geoAlbersUsa" className="composable-map">
       <ZoomableGroup center={center} zoom={zoom}>
         <Geographies geography={geographies}>
           {({ geographies }) =>
-            geographies.map((geo) => (
+            geographies.map(geo => (
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
                 onClick={() => handleGeographyClick(geo)}
-                style={{
-                  default: {
-                    fill: "#D6D6DA",
-                    outline: "none"
-                  },
-                  hover: {
-                    fill: "#F53",
-                    outline: "none"
-                  },
-                  pressed: {
-                    fill: "#E42",
-                    outline: "none"
-                  }
-                }}
+                className="geography"
               />
             ))
           }
