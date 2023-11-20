@@ -32,53 +32,24 @@ export function NavBar({ userData, setUserData }) {
   };
 
   return (
-    <header>
-      <nav>
-        <div className="left-section">
-          {userData ? (
-            <div className="profile-wrapper">
-              <img
-                className="profile-photo-small"
-                src={userData.photoURL}
-                alt="user profile"
-              />
-              <button className="sign-in" onClick={handleSignOut}>
-                Sign Out
-              </button>
-            </div>
-          ) : (
-            <button className="sign-in" onClick={openLoginPopup}>
-              Sign In
-            </button>
-          )}
-        </div>
+  <nav>
+    <img src={logo} alt="Polar Logo" className="logo" />
+    <ul className="nav-links">
+      <li><Link to="/" className="nav-link">HOME</Link></li>
+      <li><Link to="/About" className="nav-link">ABOUT</Link></li>
+      <li><span className="nav-link">AWARENESS</span></li>
+      <li><span className="nav-link">PROFILE</span></li>
 
-        <div className="center-section">
-          <img src={logo} alt="Polar Logo" className="logo" />
-        </div>
-
-        <div className="right-section">
-          <button className="hamburger" id="hamburger" onClick={hamClick}>
-            <i className="fas fa-bars"></i>
-          </button>
-        </div>
-
-        <ul className="nav-ul" id="nav-ul">
-          <li>
-            <Link to="/" className="nav-link">Home</Link>
-          </li>
-          <li>
-            <Link to="/About" className="nav-link">About</Link>
-          </li>
-          {userData && (
-            <li>
-              <Link to="/Profile" className="nav-link">Profile</Link>
-            </li>
-          )}
-        </ul>
-      </nav>
-      {isLoginPopupVisible && <LoginPopup setUserData={setUserData} closePopup={closeLoginPopup} />}
-    </header>
+      {userData && <li><Link to="/Profile" className="nav-link">PROFILE</Link></li>}
+    </ul>
+    <div className="auth-section">
+      {userData ? (
+        <img className="profile-photo" src={userData.photoURL} alt="Profile" />
+      ) : (
+        <button className="sign-in" onClick={openLoginPopup}>Sign In</button>
+      )}
+    </div>
+  </nav>
   );
 }
 

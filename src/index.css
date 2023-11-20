@@ -392,6 +392,14 @@ button:hover {
     font-size: 8px;
   }
 
+  .homepage{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #e9e5dc;
+    width:100%;
+  }
+
   .homepageHeading {
     font-size: 30px;
   }

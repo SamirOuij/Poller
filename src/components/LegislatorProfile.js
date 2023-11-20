@@ -6,6 +6,7 @@ import 'firebase/firestore';
 const LegislatorProfile = () => {
     const { bioguideID } = useParams();
     const [legislatorData, setLegislatorData] = useState(null);
+    
 
     useEffect(() => {
         const db = firebase.firestore();

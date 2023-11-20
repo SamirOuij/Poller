@@ -1,97 +1,241 @@
 /* MapChart.css */
 
+
 .composable-map {
-    width: 100%;
-    height: auto; /* Adjust as needed */
-    border-radius: 8px;
-    overflow: hidden; /* This ensures that the inner glow doesn't spill outside the radius */
-    position: relative; /* Needed for positioning pseudo-elements */
-    z-index: 1; /* Ensure the map is above other content */
-  }
-  
-  /* Create an inner glow effect */
-  .composable-map::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: -1;
-    margin: -2px; /* Adjust the margin to control the size of the glow */
-    border-radius: inherit; /* If you've set a border-radius on the container */
-    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.6);
-  }
-  
-  .geography {
-    fill: #ababab;
-    stroke: #ffffff;
-    stroke-width: 0.5px; /* Adjust stroke width for better contrast */
-    transition: fill 0.3s, stroke 0.3s, stroke-width 0.3s, transform 0.3s;
-  }
-  
-  .geography:hover {
-    fill: #2a4a6d;
-    stroke-width: 1.5px; /* Increase stroke width on hover */
-    /* Apply a slight scale transform to lift the state shape */
-    transform: scale(1.02);
-    /* Adjust drop-shadow to give a hovering effect */
-    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.5));
-  }
-  
-  /* Adjust the active state similarly, but with more emphasis */
-  .geography.active {
-    fill: #3a5a8d;
-    stroke-width: 2px;
-    transform: scale(1.04);
-    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.75));
-  }
-  /* landingpage.css */
+  width: 100%;
+  height: auto; /* Adjust as needed */
+  border-radius: 8px;
+  overflow: hidden; /* This ensures that the inner glow doesn't spill outside the radius */
+  position: relative; /* Needed for positioning pseudo-elements */
+  z-index: 1; /* Ensure the map is above other content */
+}
+
+/* Create an inner glow effect */
+.composable-map::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1;
+  margin: -2px; /* Adjust the margin to control the size of the glow */
+  border-radius: inherit; /* If you've set a border-radius on the container */
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.geography {
+  fill: #180254;
+  stroke: #ffffff;
+  stroke-width: 0.5px; /* Adjust stroke width for better contrast */
+  transition: fill 0.3s, stroke 0.3s, stroke-width 0.3s, transform 0.3s;
+}
+
+.geography:hover {
+  fill: #9ea9b4;
+  stroke-width: 1.5px; /* Increase stroke width on hover */
+  /* Apply a slight scale transform to lift the state shape */
+  transform: scale(1.02);
+  /* Adjust drop-shadow to give a hovering effect */
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.5));
+}
+
+/* Adjust the active state similarly, but with more emphasis */
+.geography.active {
+  fill: #3a5a8d;
+  stroke-width: 2px;
+  transform: scale(1.04);
+  filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.75));
+}
+/* landingpage.css */
 
 .landing {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - var(--navbar-height) - var(--footer-height)); /* Adjust for navbar and footer */
-    padding: 1em;
-    background: linear-gradient(90deg, rgba(95, 0, 179, 0.72) 29.66%, rgba(95, 0, 179, 0.99) 70.77%);
-    box-sizing: border-box; 
-  }
-  
-  .map-section {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #e9e5dc;
+  width:100%;
+}
 
-    /* Additional styles if needed */
-  }
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  gap: 20px;
+}
+
+.stats-column {
+  /* Place the stats section in the leftmost column */
+  grid-column: 1 / 2;
+  margin: 3rem;
+}
+.red-text{
+  color:red;
+}
+.blue-text{
+  color:blue
+}
+.map-column {
+  /* Ensure the map spans the two middle columns */
+  grid-column: 2 / 4;
+  /* You may want to remove width and height from .composable-map and control them here */
+}
+
+.tutorial-column {
+  /* Place the tutorial section in the rightmost column */
+  grid-column: 4 / 5;
+  /* Additional styling */
+}
+.tutorial-step {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center the text */
+  margin: 2.4rem;
+}
+
+.tutorial-icon {
+  object-fit: contain; /* This ensures the image is scaled correctly */
+  min-width: 3rem;
+}
+
+.tutorial-text {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 1rem;
+}
+
+.call-to-action {
+  grid-column: 1 / -1; /* Spanning all columns if it's inside .main-content, otherwise this line can be removed */
+  text-align: center;
+  color: black;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+/* Remainder of the CSS stays unchanged */
+
+/* Adjust your .composable-map styles as needed, possibly removing width and height if they are controlled by the grid layout */
+
+
+
+.controls-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+  margin: 1rem;
+}
+
+.number {
+  display: block;
+  font-size: 50px;
+  line-height: 55px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.description {
+  display: block;
+  font-size: 22px;
+  line-height: 24px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.call-to-action {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: black;
+  font-family: 'Julius Sans One';
+}
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; /* Adjust as needed for your design */
+  max-height: 9rem;
+  margin-top: 6rem;
+}
+
+.title-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* To center the title and subtitle */
+}
+
+h1 {
+  font-size: 6rem; /* Large font size for the title */
+  color: #000000; 
+  margin-bottom: 0.5rem; /* Space between title and subtitle */
+  font-family: 'Julius Sans One';
+
   
-  .controls-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-  }
-  
-  .controls-button {
-    padding: 0.5em 1em;
-    margin: 0 0.5em;
-    background-color: #4a90e2; /* Blue background for buttons */
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .controls-button:hover {
-    background-color: #367cd5; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-  }
-  
-  .controls-button.zoom-out {
-    background-color: #f53; /* Different color for zoom out for visibility */
-  }
-  
-  
+}
+
+.subtitle {
+  font-size: 3rem; /* Smaller font size for the subtitle */
+  color: #000000; /* Grey color */
+  font-family: 'Julius Sans One'; 
+
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* To center the buttons vertically */
+}
+
+.view-legislation-button {
+  padding: 10px 20px;
+  margin: 10px; /* Spacing around buttons */
+  border: none;
+  border-radius: 20px; /* Rounded corners for buttons */
+  background-color: #180254; /* Blue background */
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: 'Julius Sans One';
+}
+
+.view-legislation-button:hover {
+  background-color: #367CD5; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.quote-container {
+  text-align: center;
+  margin-top: 2rem; /* Adjust as needed */
+}
+
+.quote {
+  font-size: 1rem;
+  color: #777; /* Dark grey for the quote */
+  margin-bottom: 0.25rem;
+  font-style: italic; /* Italicize the quote */
+}
+img{
+  max-width: 15%;
+}
+
+.author {
+  font-size: 1rem;
+  color: #555; /* Slightly darker grey for the author */
+  font-weight: bold;
+}
+
+.title-container, .buttons-container, .quote-container {
+  flex: 1; /* This will ensure each container has an equal flex-basis */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:1rem;
+  justify-content: center;
+}

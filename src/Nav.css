@@ -1,105 +1,80 @@
-/* Adjusted navbar styles for better visibility and design */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8em 1.5em; /* Adjust padding for better spacing */
-  background: linear-gradient(90deg, rgba(95, 0, 179, 0.72) 29.66%, rgba(95, 0, 179, 0.99) 70.77%);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+.logo {
+  /* Adjust your logo size as needed, ensuring it's not too large */
+  width: 6rem; /* or your specific size */
+  height: 6rem;
+  margin-left: 2rem;
+
 }
 
-.profile-wrapper {
+.nav-links {
+  list-style-type: none;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.5em; /* Adjust the gap for better spacing */
+  flex:5;
+  margin: 1rem;
+  padding: 0;
 }
 
-.profile-photo-small {
-  width: 40px; /* Slightly larger for visibility */
-  height: 40px; /* Slightly larger for visibility */
-  border-radius: 50%;
-  border: 2px solid #fff; /* White border to stand out against purple */
+.nav-link {
+  margin: 6rem;
+  padding: 0.5rem 0; /* Add padding for clickable area */
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  border-right: 1px solid #ccc; /* Vertical separator */
+}
+
+.nav-link:last-child {
+  border-right: none; /* No border for the last item */
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+  flex-direction: row; /* Ensures items are in a row */
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Makes it round */
+  object-fit: cover;
 }
 
 .sign-in {
-  background-color: #fff; /* Contrast against the purple */
-  color: #5f00b3; /* Purple text to match the background */
-  border: none;
-  padding: 0.5em 1em;
-  border-radius: 4px;
-  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  margin-right: 2rem;
+  border: 2px solid #ccc;
+  background-color: #180254;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-.left-section, .right-section {
-  flex: 1;
+  color:#fff;
 }
 
-img{
-  max-width: 15%;
-
-}
-
-.center-section {
+/* Ensure nav is flex-direction: row */
+nav {
   display: flex;
-  justify-content: center;
-  flex: 2;
-  
+  flex-direction: row;
+  width: 90%;
+  align-items: center;
+  font-family: 'Julius Sans One';
+  font-size: 1.5rem;
+  position:absolute;
+  background-color: #e9e5dc;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+.nav-links li:not(:last-child) {
+  border-right: 2px solid #000; /* Adjust color and width as needed */
 }
 
-.sign-in:hover {
-  background-color: #eee; /* Lighter on hover */
-  color: #5f00b3;
-}
-
-.left-head {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align to the start for better structure */
-}
-
-.logo {
-  font-family: 'Fraunces', sans-serif;
-  font-size: 5.5em; /* Adjusted for better visibility */
-  color: #fff; /* White color for contrast */
-  margin-bottom: 0.2em; /* Space between logo and slogan */
-}
-
-.slogan {
-  font-family: 'Fraunces', sans-serif;
-  font-size: 1em; /* Scaled down to not overpower the logo */
-  color: #fff; /* White color for contrast */
-}
-
-.hamburger {
-  display: none; /* Assuming you will show this in mobile view */
-  /* Styles for mobile view can be added within a media query */
-}
-
-.nav-ul {
-  list-style-type: none; /* Remove default list styling */
-  display: flex;
-  gap: 1em; /* Adjust gap for spacing between nav items */
-}
-
-
-.nav-ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
-}
-.nav-link {
-  font-family: 'Fraunces', sans-serif;
-  font-weight: bold;
-  background-color: #fff; /* White background to match the sign-in button */
-  color: #5f00b3; /* Purple text to match the navbar background */
-  text-decoration: none; /* Remove the underline */
-  padding: 0.5em 1em; /* Padding to increase the clickable area */
-  border-radius: 4px; /* Rounded corners for the button-like appearance */
-  transition: background-color 0.3s ease; /* Smooth transition for hover */
-  display: inline-block; /* Needed to apply padding and margins correctly */
-}
-
-.nav-link:hover, .nav-link:focus {
-  background-color: #eee; /* Lighter background on hover for feedback */
-  color: #5f00b3; /* Keep the purple text */
-  outline: none; /* Remove the outline on focus for a clean look */
+/* Add media query for responsive behavior */
+@media (max-width: 768px) {
+  .nav-links, .auth-section {
+    display: none; /* Hide on small screens */
+  }
+  /* Add styles for the hamburger menu if needed */
 }

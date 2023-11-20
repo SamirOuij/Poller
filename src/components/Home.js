@@ -12,7 +12,7 @@ function HomeScreen({ data, handleCardClick, loader }) {
   };
 
   return (
-    <div>
+    <div className='homepage'>
       <div className="tabs">
         <button 
           className={`tab-button ${activeTab === 'bills' ? 'active' : ''}`} 
