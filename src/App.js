@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import About from './components/About';
 import Profile from './components/Profile';
 import LegislatorProfile from './components/LegislatorProfile';
 import LandingPage from './components/LandingPage';
@@ -7,6 +6,8 @@ import Bills from './components/Bills';
 import { NavBar, Footer } from './components/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
+import './HomePageandCard.css'
+import './Poll.css'
 import './LegislatorProfile.css';
 import './LoginPopup.css';
 import './Nav.css';

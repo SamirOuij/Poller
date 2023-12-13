@@ -1,0 +1,86 @@
+/* poll.js stylying */
+.poll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .poll-title {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .poll-bar-container {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    width: 80%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .poll-bar-yes {
+    height: 100%;
+    width: 0%;
+    background-color: #5cb85c; /* Use a green that's not too bright */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+  }
+  
+  .poll-bar-no {
+    height: 100%;
+    width: 0%;
+    background-color: #d9534f; /* Same red as buttons for consistency */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+  }
+  
+  .poll-bar-votes {
+    padding: 0.5rem;
+  }
+  
+  .poll-options-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+  
+  .poll-option-button-no {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #d9534f; /* Same red as buttons for consistency */
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .poll-option-button-yes {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #5cb85c; /* Use a green that's not too bright */
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .poll-option-button:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .poll-option-button-text {
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Graph styling */
+  .poll-graph {
+    width: 100%;
+    height: 0.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #5cb85c 58%, #d9534f 42%);
+  }
+  

@@ -59,7 +59,7 @@ function UniqueBill(props) {
   };
 
   return (
-    <div>
+    <div className='uniqueBillContainer'>
       <div className="uniqueBillHeader">
         <button className="button" onClick={handleBackClick}>
           <FontAwesomeIcon icon={faArrowLeft} />

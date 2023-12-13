@@ -1,0 +1,36 @@
+.billDropdownContainer {
+    background-color: #ffffff; /* Maintain white for clarity */
+    border: 1px solid #ddd; /* Lighter border color for a softer look */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Softer shadow for depth */
+  }
+  
+  /* Style buttons with a hint of red for important actions */
+  .billDropdownContainer button {
+    background-color: #d9534f; /* Soft red for call to action */
+    color: white; /* White text for contrast */
+    padding: 12px 24px; /* Larger padding for a more clickable area */
+    font-size: 1rem; /* Increase font size for readability */
+    border-radius: 4px; /* Rounded corners for modern look */
+  }
+  
+  .billDropdownContainer button:hover {
+    background-color: #c9302c; /* Darker shade of red on hover */
+  }
+  
+  /* Detail card styling adjusted for a cleaner look */
+  .billDetailsCard {
+    border: 1px solid #eaecef; /* Lighter border for less visual weight */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05); /* Softer shadow for a clean aesthetic */
+    border-radius: 8px; /* More rounded corners for modern styling */
+  }
+  
+  /* Adjust the font sizes and margins for better hierarchy */
+  .billDetailsCard h3 {
+    font-size: 1.5em; /* Increase size for heading prominence */
+    margin-bottom: 15px; /* Larger margin for clear separation */
+  }
+  
+  .billDetailsCard p,
+  .billDetailsCard ul {
+    color: #555; /* Slightly darker font for better readability */
+  }

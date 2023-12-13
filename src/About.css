@@ -1,0 +1,19 @@
+/* About Styling */
+.about {
+    text-align: center;
+    font-family: 'Source Sans Pro';
+    margin: 50px;
+  }
+  
+  .about h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    color: #EE1F44;
+  }
+  
+  .about iframe {
+    width:420px; 
+    height: 315px;
+  }
+  

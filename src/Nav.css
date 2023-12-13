@@ -58,14 +58,19 @@
 nav {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 100%; /* Consider using 100% instead of 90% to span the full width */
   align-items: center;
   font-family: 'Julius Sans One';
   font-size: 1.5rem;
-  position:absolute;
+  position: sticky; /* or 'relative' depending on your needs */
+  top: 0; /* Stick to the top */
   background-color: #e9e5dc;
-  margin-bottom: 2rem;
-  z-index: 1;
+  z-index: 10; /* Ensure it's above other content */
+}
+
+/* Add padding-top to the main content container, adjust accordingly to the navbar's height */
+.main-content {
+  padding-top: 6rem; /* This assumes your navbar is about 6rem tall */
 }
 .nav-links li:not(:last-child) {
   border-right: 2px solid #000; /* Adjust color and width as needed */
