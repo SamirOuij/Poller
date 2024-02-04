@@ -64,14 +64,21 @@ function UniqueBill(props) {
         <button className="button" onClick={handleBackClick}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
-        <h2>{billTitle}</h2>
+        <h2>{title}</h2>
         <p>{billText}</p>
       </div>
-        <BillDetailsDropdown title={title} cosponsors={cosponsors} actionDate={actionDate} actionDesc = {actionDesc} originalChamber = {originalChamber} currentChamber={currentChamber} url={url}
-     />
-
       <Poll billId={billId} pollData={pollData} userData={userData} handlePollClick={handlePollClick} />
-      <Comments billId={billId} commentsRef={commentsRef} />
+      <div className="bottomHalf">
+        <div className="section1"></div>
+        <div className="commentSection">
+          <Comments billId={billId} commentsRef={commentsRef} />
+        </div>
+        <div className="billDetailsDropdown">
+        <BillDetailsDropdown  cosponsors={cosponsors} actionDate={actionDate} actionDesc = {actionDesc} originalChamber = {originalChamber} currentChamber={currentChamber} url={url}/>
+        </div>
+      </div>
+        
+
     </div>
   );
 }

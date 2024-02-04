@@ -1,24 +1,31 @@
 /*Homepage card styling*/
 .cardContainer {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* change from scroll to auto so the scrollbar only appears when necessary */
-    justify-content: flex-start; /* align items to the start of the container */
-    align-items: center;
-    height: calc(100vh - 60px); /* subtracting an arbitrary 60px for potential headers or paddings, adjust as necessary */
-    padding-top: 2rem; /* reduced padding from 310rem to 2rem, adjust as necessary */
+  font-family: 'Julius Sans One';
+  font-size: 1.5rem;
+  background-color: #e9e5dc;
+  overflow-y: auto; /* change from scroll to auto so the scrollbar only appears when necessary */
+  height: 100vh;
   }
-  
+  .homepage{
+    background-color: #e9e5dc;
+
+  }
+  .tabs{  
+    background-color: #e9e5dc;    
+    display: flex;
+    justify-content: center;
+  }
   .homepageHeading{
       text-align: center;
       font-weight: bold;
       margin-top: 2rem;
       font-size: 2rem;
+      
   }
   .card {
       width: 50rem;
       height: 6rem;
-      background-color: white;
+      background-color: rgb(255, 255, 255);
       box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
       border-radius: 1rem;
       padding: 2rem;

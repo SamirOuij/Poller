@@ -1,11 +1,13 @@
 .uniqueBillContainer {
-    background: #f0f2f5; /* Light grey background for the entire container */
-    padding: 1rem; /* Padding around the container */
-    margin-top: 60px; /* Adjust based on the height of your navbar */
+    background: #e9e5dc; /* Light grey background for the entire container */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Julius Sans One';
+ 
   }
   
   .uniqueBillHeader {
-    background: #ffffff; /* White background for the header */
     border-bottom: 1px solid #eaeaea; /* Light border for separation from the content */
     padding: 1rem; /* Padding inside the header */
     border-radius: 5px; /* Rounded corners for the header */
@@ -13,6 +15,24 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   }
   
+  .bottomHalf {
+    flex-grow: 1;
+    display: flex;
+  }
+  
+  .section1, .billDetailsDropdown {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* Add additional styling here */
+  }
+  
+  .commentSection {
+    flex-basis: 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* Add additional styling here */
+  }
   .uniqueBillHeader .button {
     background: none; /* No background for the button to keep it clean */
     border: none; /* No border for a flat design */
@@ -25,10 +45,7 @@
     color: #333; /* Dark grey for title for better readability */
     font-size: 1.8rem; /* Larger font size for the title */
     margin-bottom: .5rem; /* Small margin bottom for spacing */
+    text-align: center;
   }
   
-  .uniqueBillHeader p {
-    color: #666; /* Medium grey for the paragraph text */
-    font-size: 1rem; /* Standard font size for the paragraph */
-    line-height: 1.6; /* Line height for better readability */
-  }
+  

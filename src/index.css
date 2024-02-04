@@ -19,20 +19,6 @@
     text-align: center;
   }
 }
-.tabs {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.tab-button {
-  margin: 0 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #f1f1f1;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
 .tab-button:hover {
   background-color: #ddd;
@@ -94,8 +80,6 @@
   resize: vertical; /* allow vertical resizing */
   min-height: 80px; /* minimum height for the textarea */
 }
-
-
 
 button:hover {
   background-color: #0056b3;

@@ -7,10 +7,13 @@ import { NavBar, Footer } from './components/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import './HomePageandCard.css'
+import './Comments.css';
 import './Poll.css'
 import './LegislatorProfile.css';
 import './LoginPopup.css';
 import './Nav.css';
+import './UniqueBill.css';
+import './billDropdownContainer.css';
 import './MapChart.css'
 
 function App() {
