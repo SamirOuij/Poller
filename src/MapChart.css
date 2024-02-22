@@ -220,7 +220,7 @@ h1 {
   margin-bottom: 0.25rem;
   font-style: italic; /* Italicize the quote */
 }
-img{
+.tutorial-column img{
   max-width: 15%;
 }
 

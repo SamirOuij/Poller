@@ -2,12 +2,18 @@
 .cardContainer {
   font-family: 'Julius Sans One';
   font-size: 1.5rem;
-  background-color: #e9e5dc;
-  overflow-y: auto; /* change from scroll to auto so the scrollbar only appears when necessary */
-  height: 100vh;
+  display: flex; /* Changed from inline-flex to flex */
+    flex-direction: column; /* Align cards in a row */
+    flex: 0 0 50%;
   }
+  .section {
+    flex: 0 0 25%; /* Distribute space equally among sections */
+}
+  
   .homepage{
     background-color: #e9e5dc;
+    display:flex;
+    flex-direction: row;
 
   }
   .tabs{  
@@ -23,7 +29,6 @@
       
   }
   .card {
-      width: 50rem;
       height: 6rem;
       background-color: rgb(255, 255, 255);
       box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -47,3 +52,24 @@
     .icon-vote {
       color: #333;
     }
+
+    .GovernorPhoto img {
+      display:flex;
+      border-radius: 50%;
+      min-width: 40%;
+    }
+
+    .GovernorBio{
+      font-size:0.7rem;
+      text-align: center;
+      font-family: 'Julius Sans One';
+      max-width: 50%;
+
+    }
+    .StateGovernor {
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+      flex: 0 0 25%; /* Doesn't grow, doesn't shrink, starts at 25% of the parent's width */
+      flex-direction: column;
+  }

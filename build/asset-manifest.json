@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/Poller/static/css/main.a593778a.css",
-    "main.js": "/Poller/static/js/main.34c312e0.js",
+    "main.css": "/Poller/static/css/main.b15104ab.css",
+    "main.js": "/Poller/static/js/main.4767b7af.js",
+    "static/media/eye-computer-icons-clip-art-eye.jpg": "/Poller/static/media/eye-computer-icons-clip-art-eye.c4572e5cce9c95bd125a.jpg",
+    "static/media/Polar_No_Background.png": "/Poller/static/media/Polar_No_Background.da234a976ec9b8588835.png",
+    "static/media/click_clipart.jpeg": "/Poller/static/media/click_clipart.281471c1f443b3581149.jpeg",
     "index.html": "/Poller/index.html",
-    "main.a593778a.css.map": "/Poller/static/css/main.a593778a.css.map",
-    "main.34c312e0.js.map": "/Poller/static/js/main.34c312e0.js.map"
+    "main.b15104ab.css.map": "/Poller/static/css/main.b15104ab.css.map",
+    "main.4767b7af.js.map": "/Poller/static/js/main.4767b7af.js.map"
   },
   "entrypoints": [
-    "static/css/main.a593778a.css",
-    "static/js/main.34c312e0.js"
+    "static/css/main.b15104ab.css",
+    "static/js/main.4767b7af.js"
   ]
 }
